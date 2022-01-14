@@ -13,6 +13,13 @@ namespace HotelJsonandInterface.Interface
 
         void AddHotel(int? id);
 
-        List<Hotel> GetTopHotels();
+        List<Hotel> GetTopHotels(int topHotels);
+
+        Hotel SQLGetHotelById(int id);
+
+        void SQLAddHotel(int? id);
+
+        List<Hotel> SQLGetTopHotels(int one, int two);
+       
     }
 }

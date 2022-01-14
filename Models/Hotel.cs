@@ -22,6 +22,8 @@ namespace HotelJsonandInterface.Models
             this.TouristСapacity = touristСapacity;
             this.Rating = rating;
         }
+        public Hotel() { }
     }
+  
 
 }

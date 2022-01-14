@@ -25,8 +25,6 @@ namespace HotelJsonandInterface.Realization
         public IHotelsWriter CreateWriter()
         {
             return new JsonHotelsWriter(SourcePath);
-        }
-
-      
+        }     
     }
 }

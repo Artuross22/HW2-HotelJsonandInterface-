@@ -18,7 +18,7 @@ namespace HotelJsonandInterface.Realization
 
         public string SourcePath { get; }
 
-        public void AddHotel(int? id)
+        public void AddHotel(int id)
         {
             if (!File.Exists(SourcePath))
                 throw new Exception("File not found.");

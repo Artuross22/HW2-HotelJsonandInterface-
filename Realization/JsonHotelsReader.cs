@@ -14,7 +14,6 @@ namespace HotelJsonandInterface.Realization
         public string SourcePath { get; }
 
         
-
         public JsonHotelsReader(string path)
         {
             SourcePath = path;
@@ -43,7 +42,6 @@ namespace HotelJsonandInterface.Realization
             var hotels = JsonConvert.DeserializeObject<List<Hotel>>(jsonString);
             var result = hotels.Where(p => p.HotelId == Id).FirstOrDefault();
             return result;
-
         }
     }
 }

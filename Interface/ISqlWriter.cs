@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelJsonandInterface.Realization
+namespace HotelJsonandInterface.Interface
 {
-    public interface IHotelsWriter
-    { 
-       void AddHotel(int id);
-
+    public interface ISqlWriter
+    {
+        void AddHotel(int id);
     }
 }
