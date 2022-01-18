@@ -9,6 +9,6 @@ namespace HotelJsonandInterface.Interface
 {
     public interface ISqlWriter
     {
-        void AddHotel(int id);
+        void AddHotel(Hotel hotel);
     }
 }

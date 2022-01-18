@@ -17,13 +17,15 @@ namespace HotelJsonandInterface.Realization
         {
             get => new  ApplicationContext();         
         }
-        public void AddHotel(int rating)
+        public void AddHotel(Hotel hotels)
         {
-            
+            int? rating = hotels.Rating;
             if (rating <= 0 && rating >= 5)
                 throw new Exception("rating less than 0 and not more than 5"); 
 
-            Hotel myHotel = new Hotel { Name = "MyHotel", FoundedDate = "01.02.2000", TouristСapacity = 2000, Rating = rating };
+            Hotel hotelSql = new Hotel{ Name = hotels.Name, FoundedDate = hotels.FoundedDate, TouristСapacity = hotels.TouristСapacity, Rating = hotels.Rating };  
+            
+            Hotel myHotel = new Hotel { Name = "MyHotel", FoundedDate = "01.02.2000", TouristСapacity = 2000, Rating = 8};
             Hotel hotel = new Hotel { Name = "Chermosh", FoundedDate = "01.02.2000", TouristСapacity = 2000, Rating = 5 };
             Hotel hote2 = new Hotel { Name = "Bukovina", FoundedDate = "01.02.2005", TouristСapacity = 900, Rating = 4 };
             Hotel hote3 = new Hotel { Name = "Brashow", FoundedDate = "01.02.2007", TouristСapacity = 420, Rating = 3 };
@@ -32,7 +34,7 @@ namespace HotelJsonandInterface.Realization
 
             var db = new ApplicationContext();
             db.Hotels.Add(hote5);
-            db.Hotels.AddRange(myHotel , hotel, hote2, hote3, hote4, hote5);
+            db.Hotels.AddRange(myHotel , hotel, hote2, hote3, hote4, hote5 , hotelSql);
             db.SaveChanges();
 
         }

@@ -18,15 +18,15 @@ namespace HotelJsonandInterface.Realization
 
         public string SourcePath { get; }
 
-        public void AddHotel(int id)
+        public void AddHotel(Hotel hotel)
         {
             if (!File.Exists(SourcePath))
                 throw new Exception("File not found.");
 
             string jsonString = File.ReadAllText(SourcePath);
-            var hotels = JsonConvert.DeserializeObject<List<Hotel>>(jsonString);
 
-            hotels.Add(new Hotel("Chermos", 11 , "08.10.1990", 1900, 5));
+            var hotels = JsonConvert.DeserializeObject<List<Hotel>>(jsonString);
+            hotels.Add(new Hotel { Name = hotel.Name, HotelId = hotel.HotelId, FoundedDate = hotel.FoundedDate, TouristСapacity = hotel.TouristСapacity, Rating = hotel.Rating });
 
             string serealizeHotel = JsonConvert.SerializeObject(hotels);
             File.WriteAllText(SourcePath, serealizeHotel);

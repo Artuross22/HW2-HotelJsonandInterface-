@@ -11,13 +11,13 @@ namespace HotelJsonandInterface.Interface
     {
         Hotel GetHotelById(int id);
 
-        void AddHotel(int? id);
+        void AddHotel(Hotel hotel);
 
         List<Hotel> GetTopHotels(int topHotels);
 
         Hotel SQLGetHotelById(int id);
 
-        void SQLAddHotel(int? id);
+        void SQLAddHotel(Hotel hotel);
 
         List<Hotel> SQLGetTopHotels(int one, int two);
        

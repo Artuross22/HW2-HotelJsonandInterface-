@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace HotelJsonandInterface.Realization
 {
@@ -24,16 +25,16 @@ namespace HotelJsonandInterface.Realization
 
         }
 
-        public void AddHotel( int? id)
+        public void AddHotel(Hotel hotel)
         {
-            if (id == null && id == 0)
+            int? hotelId = hotel.HotelId;
+
+            if (hotelId == null && hotel.HotelId == 0)
                 throw new Exception("Invalid id");
 
-            int hotellId = id ?? 0;
-            if (hotellId == 0)
-                Console.WriteLine("ID not specified");
             var recording = storageProvider.CreateWriter();
-            recording.AddHotel(hotellId);
+            recording.AddHotel(hotel);
+
         }
 
         public Hotel GetHotelById(int id)
@@ -53,18 +54,20 @@ namespace HotelJsonandInterface.Realization
 
 
 
-        public void SQLAddHotel(int? id)
+        public void SQLAddHotel(Hotel hotel)
         {
-            if (id == null)
-                throw new Exception("Invalid id");
+            int? rating = hotel.Rating;
+
+            if (rating == null)
+                throw new Exception("Invalid rating");
           
 
-            if(id <=  1 && id >= 5)
+            if(rating <=  1 && rating >= 5)
                 throw new Exception("rating not 0 and not more than 5");
-            var check = id ?? 0;
+
          
             var baseMethodAdd = sqlStorageProvider.SqlCreateWriter();
-            baseMethodAdd.AddHotel(check);    
+            baseMethodAdd.AddHotel(hotel);    
             
         }
 

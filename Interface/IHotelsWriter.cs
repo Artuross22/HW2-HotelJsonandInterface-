@@ -9,7 +9,7 @@ namespace HotelJsonandInterface.Realization
 {
     public interface IHotelsWriter
     { 
-       void AddHotel(int id);
+       void AddHotel(Hotel hotelss);
 
     }
 }
