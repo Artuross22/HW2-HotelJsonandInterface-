@@ -15,9 +15,9 @@ namespace HotelJsonandInterface.Realization
 
         protected IStorageProvider storageProvider;
 
-        protected ISqlStorageProvider sqlStorageProvider;
+        protected IStorageProvider sqlStorageProvider;
 
-        public HotelManager(IStorageProvider provider , ISqlStorageProvider sqlProvider )
+        public HotelManager(IStorageProvider provider , IStorageProvider sqlProvider )
         {
             storageProvider = provider;
             sqlStorageProvider = sqlProvider;
@@ -66,21 +66,23 @@ namespace HotelJsonandInterface.Realization
                 throw new Exception("rating not 0 and not more than 5");
 
          
-            var baseMethodAdd = sqlStorageProvider.SqlCreateWriter();
-            baseMethodAdd.AddHotel(hotel);    
-            
+            var baseMethodAdd = sqlStorageProvider.CreateWriter();
+            baseMethodAdd.AddHotel(hotel);
+          
+
+
         }
 
         public Hotel SQLGetHotelById(int id)
         {
-            var getById = sqlStorageProvider.SqlCreateReader();
+            var getById = sqlStorageProvider.CreateReader();
             return getById.GetById(id);
 
         }
 
         public List<Hotel> SQLGetTopHotels(int betweenOne, int betweenTwo)
         {
-            var hotelInformation = sqlStorageProvider.SqlCreateReader();
+            var hotelInformation = sqlStorageProvider.CreateReader();
             var  allhotel = hotelInformation.GetAll();
             var mediumHotels = allhotel.Where(x => x.Rating >= betweenOne && x.Rating <= betweenTwo).ToList();
             return mediumHotels;

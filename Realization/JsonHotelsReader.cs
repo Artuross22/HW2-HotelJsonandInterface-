@@ -33,7 +33,7 @@ namespace HotelJsonandInterface.Realization
             return hotels;
         }
 
-        public Hotel GetById(int Id)
+        public Hotel GetById(int? Id)
         {
             if (!File.Exists(SourcePath))
                 throw new Exception("File not found.");

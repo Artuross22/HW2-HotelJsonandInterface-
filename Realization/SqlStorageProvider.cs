@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace HotelJsonandInterface.Realization
 {
-    class SqlStorageProvider : ISqlStorageProvider
+    class SqlStorageProvider : IStorageProvider
     {
-        public ISqlReader SqlCreateReader()
+        public IHotelsReader CreateReader()
         {
             return new SqlHotelReader();
         }
 
-        public ISqlWriter SqlCreateWriter()
+        public IHotelsWriter CreateWriter()
         {
             return new SqlHotelWrite();
         }

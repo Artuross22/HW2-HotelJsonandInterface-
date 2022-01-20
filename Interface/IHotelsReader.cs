@@ -9,7 +9,7 @@ namespace HotelJsonandInterface.Realization
 {
     public interface IHotelsReader
     {
-        Hotel GetById(int id);
+        Hotel GetById(int? id);
         List<Hotel> GetAll();
     }
 }

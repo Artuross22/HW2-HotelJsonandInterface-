@@ -13,11 +13,12 @@ namespace HotelJsonandInterface
         private const string Source = "C:\\Users\\user\\source\\repos\\HotelJsonandInterface\\Hotel.js";
         static void Main(string[] args)
         {
-            ISqlStorageProvider sqlStorageProvider = new SqlStorageProvider();
-            IStorageProvider storageProvider = new JsonStorageProvider(Source);
+            IStorageProvider sqlStorageProvider = new SqlStorageProvider();
+            IStorageProvider storageProvider = new StorageProvider(Source);
+
 
             IHotelsManager manager = new HotelManager(storageProvider , sqlStorageProvider);
-            Hotel hotel = new Hotel { Name = "Chermos", FoundedDate = "08.10.1990", TouristСapacity = 1900, Rating = 5, HotelId = 999 };
+            Hotel hotel = new Hotel("Chermos", 999, "08.10.1990", 1900, 5);
             manager.AddHotel(hotel);
             manager.GetTopHotels(5);
             manager.GetHotelById(3);
@@ -26,6 +27,7 @@ namespace HotelJsonandInterface
             manager.SQLGetHotelById(3);
             manager.SQLAddHotel(hotels);
             manager.SQLGetTopHotels(3, 4);
+         
 
         }
     }

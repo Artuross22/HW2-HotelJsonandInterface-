@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace HotelJsonandInterface.Realization
 {
-    public class JsonStorageProvider : IStorageProvider
+    public class StorageProvider : IStorageProvider
     {
         private string sourcePath;
 
         public string SourcePath => sourcePath;
 
-        public JsonStorageProvider(string sourcePath)
+        public StorageProvider(string sourcePath)
         {
             this.sourcePath = sourcePath;
         }

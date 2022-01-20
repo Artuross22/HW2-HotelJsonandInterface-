@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HotelJsonandInterface.Realization
 {
-    class SqlHotelReader : ISqlReader
+    class SqlHotelReader : IHotelsReader
     {
         protected ApplicationContext ApplicationContext
         {

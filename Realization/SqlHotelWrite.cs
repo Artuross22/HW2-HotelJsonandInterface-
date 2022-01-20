@@ -11,7 +11,7 @@ namespace HotelJsonandInterface.Realization
 {
 
 
-    class SqlHotelWrite : ISqlWriter
+    class SqlHotelWrite : IHotelsWriter
     {
         protected ApplicationContext ApplicationContext
         {
